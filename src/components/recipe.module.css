@@ -1,15 +1,21 @@
+/* Reset all elements' margin and padding to 0 */
+* {
+  margin: 0;
+  padding: 0;
+}
 
-
+/* Default Styles for Recipe Cards */
 .recipe {
   border-radius: 10px;
-  box-shadow: 0px 5px 20px rgb(71,71,71);
+  box-shadow: 0px 5px 20px rgb(71, 71, 71);
   margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center; /* Center-aligns all children horizontally */
   justify-content: space-around;
   background: white;
-  min-width: 40%;
+  width: 100%; /* Full width of the container */
+  max-width: 400px; /* Limit max width of recipe card */
   padding: 20px;
 }
 
@@ -24,6 +30,7 @@
 .title {
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 22px; /* Set a default larger font size */
 }
 
 .ingredients {
@@ -38,4 +45,106 @@
   font-size: 18px;
   margin-top: 15px;
   text-align: center; /* Centers the calories text */
+}
+
+/* Media Queries */
+
+/* Mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .recipe {
+    min-width: 90%; /* Take up more width on smaller screens */
+    padding: 15px; /* Reduce padding for better spacing */
+  }
+
+  .image {
+    width: 150px; /* Smaller image size for mobile */
+    height: 150px;
+  }
+
+  .title {
+    font-size: 18px; /* Smaller title font size */
+  }
+
+  .ingredients {
+    width: 100%; /* Ensure ingredients take up the full width */
+    padding: 10px;
+  }
+
+  .calories {
+    font-size: 16px; /* Reduce calories font size */
+  }
+}
+
+/* Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .recipe {
+    min-width: 90%; /* Make recipe cards take up more width on smaller tablets */
+    padding: 15px;
+  }
+
+  .image {
+    width: 170px; /* Adjust image size for tablets */
+    height: 170px;
+  }
+
+  .title {
+    font-size: 20px; /* Adjust title size */
+  }
+
+  .ingredients {
+    padding: 10px; /* Add more padding for spacing */
+  }
+
+  .calories {
+    font-size: 17px;
+  }
+}
+
+/* Larger tablets / Small desktop (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .recipe-container {
+    grid-template-columns: repeat(2, 1fr); /* Two-column layout for larger tablets */
+  }
+
+  .recipe {
+    min-width: 45%; /* Allow more space for recipe cards */
+  }
+
+  .image {
+    width: 180px; /* Medium image size */
+    height: 180px;
+  }
+
+  .title {
+    font-size: 21px; /* Slightly smaller title */
+  }
+
+  .calories {
+    font-size: 17px;
+  }
+}
+
+/* Large desktop screens (min-width: 1025px) */
+@media screen and (min-width: 1025px) {
+  .recipe-container {
+    grid-template-columns: repeat(3, 1fr); /* Three-column layout on large screens */
+  }
+
+  .recipe {
+    min-width: 30%; /* Recipe cards take up less space on wide screens */
+    padding: 25px; /* More padding for larger screens */
+  }
+
+  .image {
+    width: 200px; /* Standard image size */
+    height: 200px;
+  }
+
+  .title {
+    font-size: 24px; /* Larger title font */
+  }
+
+  .calories {
+    font-size: 18px;
+  }
 }
