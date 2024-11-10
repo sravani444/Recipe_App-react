@@ -1,45 +1,129 @@
-*{
+/* Global Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
 }
-.recipe-container {
-  display: grid; /* Use grid layout for better control */
-  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-  gap: 20px; /* Adds space between items */
-  padding: 20px;
-  justify-content: center; /* Center-aligns the grid within the container */
-}
-.App{
- 
+
+/* Base Styles */
+.App {
   min-height: 100vh;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.title{
-   padding-top: 30px;
-   display: flex;
-   justify-content: center;
+
+/* Title */
+.title {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem; /* Adjust font size for title */
+  color: #333; /* Set a color for the title */
 }
-.search-form{
+
+/* Search Form */
+.search-form {
   min-height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Make the form stack on mobile */
 }
-.search-bar{
-  width: 50%;
-  border: none;
-  padding: 10px;
-}
-.search-button{
-    background:lightcoral;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    cursor: pointer;
 
+/* Search Bar */
+.search-bar {
+  width: 50%;
+  border: 1px solid #ddd; /* Add a border for search bar */
+  padding: 10px;
+  border-radius: 5px; /* Add slight rounding for the search bar */
+  font-size: 1rem; /* Adjust font size for better readability */
 }
-.recipes{
+
+/* Search Button */
+.search-button {
+  background: lightcoral;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners for the button */
+  margin-left: 10px; /* Space between button and search bar */
+}
+
+/* Recipe Container */
+.recipe-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  max-width: 1200px; /* Limit width of recipe container on larger screens */
+  margin: 0 auto; /* Center-align the recipe container */
+}
+
+/* Recipes Layout */
+.recipes {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   flex-wrap: wrap;
+}
+
+/* Media Queries */
+
+/* Mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .search-bar {
+    width: 80%; /* Make search bar take more width */
+  }
+
+  .recipe-container {
+    grid-template-columns: 1fr; /* Stack recipe items in one column */
+  }
+
+  .recipes {
+    justify-content: center; /* Center-align recipes */
+  }
+
+  .search-form {
+    flex-direction: column; /* Stack the search form elements */
+  }
+}
+
+/* Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .search-bar {
+    width: 70%; /* Adjust search bar width for tablets */
+  }
+
+  .recipe-container {
+    grid-template-columns: repeat(1, 1fr); /* Stack recipe items in one column */
+  }
+
+  .recipes {
+    justify-content: center; /* Center-align recipes */
+  }
+}
+
+/* Larger tablets / Small desktop (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .recipe-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  }
+
+  .search-bar {
+    width: 60%; /* Adjust search bar width */
+  }
+}
+
+/* Desktops (min-width: 1025px) */
+@media screen and (min-width: 1025px) {
+  .recipe-container {
+    grid-template-columns: repeat(3, 1fr); /* Three columns layout for larger screens */
+  }
+
+  .search-bar {
+    width: 40%; /* Adjust search bar width for larger screens */
+  }
 }
